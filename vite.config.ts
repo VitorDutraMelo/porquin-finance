@@ -1,12 +1,13 @@
-import vinext from "vinext";
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   base: "/porquin-finance/",
-
+  plugins: [react()],
   server: {
     host: "0.0.0.0",
   },
-
-  plugins: [vinext()],
+  preview: {
+    host: "0.0.0.0",
+  },
 });

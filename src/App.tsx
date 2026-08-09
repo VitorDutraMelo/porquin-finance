@@ -1,6 +1,6 @@
-"use client";
-
 import { useEffect, useMemo, useRef, useState } from "react";
+
+const BASE_URL = import.meta.env.BASE_URL;
 
 type Kind = "income" | "expense";
 type Status = "paid" | "pending";
@@ -29,11 +29,11 @@ const defaults: Store = {
   ],
 };
 
-function Pig({ small = false, celebratory = false }: { small?: boolean; celebratory?: boolean }) { return <span className={`pig ${small ? "pig-small" : ""} ${celebratory ? "pig-celebrate" : ""}`} aria-hidden="true"><img src="/porquin-official.png" alt="" /></span>; }
+function Pig({ small = false, celebratory = false }: { small?: boolean; celebratory?: boolean }) { return <span className={`pig ${small ? "pig-small" : ""} ${celebratory ? "pig-celebrate" : ""}`} aria-hidden="true"><img src={`${BASE_URL}porquin-official.png`} alt="" /></span>; }
 function Empty({ title, text, action, onClick }: { title: string; text: string; action?: string; onClick?: () => void }) { return <div className="empty"><Pig small/><h3>{title}</h3><p>{text}</p>{action && <button className="primary" onClick={onClick}>{action}</button>}</div>; }
 function confirmAction(message: string) { return window.confirm(message); }
 
-export default function Home() {
+export default function App() {
   const [store, setStore] = useState<Store>(defaults);
   const [ready, setReady] = useState(false);
   const [tab, setTab] = useState("Início");
@@ -62,7 +62,7 @@ export default function Home() {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
-          .register("/service-worker.js", { scope: "/" })
+          .register(`${BASE_URL}service-worker.js`, { scope: BASE_URL })
           .catch((error) => console.error("Erro ao registrar Service Worker:", error));
       }, { once: true });
     }
@@ -140,6 +140,6 @@ export default function Home() {
     else if(modal.type==="goal"||modal.type==="pot"){const g=modal.item;body=<form className="modal" onSubmit={e=>saveGoal(e,modal.type==="goal"?"goal":"pot",g)}><Close/><h2>{g?"Editar":"Criar"} {modal.type==="goal"?"meta":"cofrinho"}</h2><label>Nome<input name="name" required defaultValue={g?.name}/></label><div className="form-row"><label>Valor alvo<input name="target" type="number" min="0.01" step="0.01" required defaultValue={g?.target}/></label><label>Ícone<input name="icon" maxLength={4} defaultValue={g?.icon??"🐷"}/></label></div>{!g&&<label>Valor inicial<input name="current" type="number" min="0" step="0.01" defaultValue="0"/></label>}<button className="submit">Salvar</button></form>}
     else if(modal.type==="fund"){body=<form className="modal" onSubmit={e=>saveFund(e,modal.bucket,modal.item)}><Close/><h2>Atualizar saldo</h2><p>{modal.item.name} · atual {money(modal.item.current)}</p><label>Operação<select name="direction"><option value="add">Adicionar dinheiro</option><option value="remove">Remover dinheiro</option></select></label><label>Valor<input name="amount" type="number" min="0.01" step="0.01" required/></label><button className="submit">Confirmar</button></form>}
     else if(modal.type==="category"){const c=modal.item;body=<form className="modal" onSubmit={e=>saveCategory(e,c)}><Close/><h2>{c?"Editar":"Nova"} categoria</h2><label>Nome<input name="name" required defaultValue={c?.name}/></label><div className="form-row"><label>Uso<select name="kind" defaultValue={c?.kind??"expense"}><option value="expense">Despesa</option><option value="income">Receita</option><option value="both">Ambos</option></select></label><label>Cor<input name="color" type="color" defaultValue={c?.color??"#f14c8b"}/></label></div><button className="submit">Salvar categoria</button></form>}
-    else {const e=modal.item;body=<form className="modal" onSubmit={x=>saveEvent(x,e)}><Close/><h2>{e?"Editar":"Novo"} evento</h2><label>Título<input name="title" required defaultValue={e?.title}/></label><div className="form-row"><label>Data<input name="date" type="date" required defaultValue={e?.date??today()}/></label><label>Valor<input name="amount" type="number" min="0" step="0.01" defaultValue={e?.amount}/></label></div><button className="submit">Salvar evento</button></form>};return <div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setModal(null)}>{body}</div>}
+    else {const e=modal.item as Event | undefined;body=<form className="modal" onSubmit={x=>saveEvent(x,e)}><Close/><h2>{e?"Editar":"Novo"} evento</h2><label>Título<input name="title" required defaultValue={e?.title}/></label><div className="form-row"><label>Data<input name="date" type="date" required defaultValue={e?.date??today()}/></label><label>Valor<input name="amount" type="number" min="0" step="0.01" defaultValue={e?.amount}/></label></div><button className="submit">Salvar evento</button></form>};return <div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setModal(null)}>{body}</div>}
   function Close(){return <button type="button" className="close" aria-label="Fechar" onClick={()=>setModal(null)}>×</button>}
 }

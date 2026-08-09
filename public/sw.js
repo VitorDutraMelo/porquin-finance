@@ -1,13 +1,14 @@
-const CACHE = "porquin-finance-v4";
+const CACHE = "porquin-finance-v6";
+const BASE = "/porquin-finance/";
 const SHELL = [
-  "/",
-  "/manifest.webmanifest",
-  "/porquin-official.png",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/maskable-icon-512.png",
-  "/apple-touch-icon.png",
-  "/favicon.png",
+  BASE,
+  `${BASE}manifest.webmanifest`,
+  `${BASE}porquin-official.png`,
+  `${BASE}icon-192.png`,
+  `${BASE}icon-512.png`,
+  `${BASE}maskable-icon-512.png`,
+  `${BASE}apple-touch-icon.png`,
+  `${BASE}favicon.png`,
 ];
 
 self.addEventListener("install", (event) => {
@@ -38,6 +39,6 @@ self.addEventListener("fetch", (event) => {
         }
         return response;
       })
-      .catch(async () => (await caches.match(event.request)) || (await caches.match("/"))),
+      .catch(async () => (await caches.match(event.request)) || (await caches.match(BASE))),
   );
 });
