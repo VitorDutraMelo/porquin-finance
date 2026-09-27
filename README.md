@@ -1,129 +1,398 @@
-# Porquin Finance
+# 🐷 Porquin Finance
 
-Aplicativo financeiro pessoal, instalável e focado em privacidade. O Porquin Finance permite organizar receitas, despesas, metas, cofrinhos, eventos e preferências diretamente no dispositivo, sem exigir conta ou banco de dados externo.
+> Controle suas finanças de forma simples, privada e organizada.
 
-## Funcionalidades
+O **Porquin Finance** é uma aplicação web de controle financeiro pessoal desenvolvida para ajudar usuários a organizarem receitas, despesas, metas, cofrinhos e compromissos financeiros de maneira simples e intuitiva.
 
-- Cadastro, edição e exclusão de receitas e despesas
-- Controle de movimentações pagas, pendentes, recorrentes e parceladas
+A aplicação funciona diretamente no dispositivo do usuário e não exige conta, login, servidor ou banco de dados externo.
+
+Os dados financeiros são armazenados localmente no navegador, oferecendo uma experiência rápida, privada e com suporte a funcionamento offline.
+
+---
+
+## ✨ Funcionalidades
+
+### 💰 Controle financeiro
+
+- Cadastro de receitas e despesas
+- Edição e exclusão de movimentações
+- Controle de movimentações pagas e pendentes
+- Parcelamento de despesas
+- Movimentações recorrentes
 - Categorias personalizadas
-- Metas financeiras e cofrinhos
-- Calendário de compromissos
-- Resumo mensal, patrimônio, insights e conquistas
-- Tema claro e escuro
-- Backup, importação e restauração dos dados
-- Instalação como PWA em dispositivos compatíveis
-- Funcionamento offline por meio de Service Worker
-- Persistência local e privada no navegador
+- Histórico de movimentações
+- Pesquisa e filtros
 
-## Tecnologias
+### 📊 Dashboard
 
-- React 19
-- TypeScript
-- Vite 8
-- Vinext
-- CSS
-- Progressive Web App (PWA)
-- LocalStorage
-- Service Worker
+- Patrimônio líquido
+- Receitas do mês
+- Despesas do mês
+- Saldo mensal
+- Comparação com meses anteriores
+- Gráfico de receitas e despesas
+- Gastos por categoria
+- Indicador de saúde financeira
+- Insights financeiros automáticos
 
-## Pré-requisitos
+### 🎯 Metas e Cofrinhos
+
+- Criação de metas financeiras
+- Definição de valor objetivo
+- Acompanhamento do progresso
+- Adição e retirada de valores
+- Cofrinhos para organização de reservas
+- Indicadores visuais de progresso
+
+### 📅 Calendário financeiro
+
+- Cadastro de eventos financeiros
+- Controle de vencimentos
+- Valores pendentes
+- Marcação de eventos como pagos
+
+### 🏆 Conquistas
+
+O aplicativo possui conquistas que acompanham a evolução financeira do usuário, como:
+
+- Primeiro registro financeiro
+- Primeira meta
+- Primeiros R$ 1.000 reservados
+- Mês com saldo positivo
+
+### 🔐 Privacidade e segurança dos dados
+
+- Dados armazenados localmente
+- Nenhum banco de dados externo
+- Nenhuma conta obrigatória
+- Nenhum envio de informações financeiras para servidores
+- Exportação de backup
+- Importação de dados
+- Backup de segurança
+- Restauração de dados
+
+### 🎨 Experiência
+
+- Tema escuro
+- Tema claro
+- Interface responsiva
+- Navegação adaptada para desktop e mobile
+- Mascote oficial Porquin
+- Aplicação instalável como PWA
+
+---
+
+## 📱 Progressive Web App
+
+O Porquin Finance foi desenvolvido como **PWA (Progressive Web App)**.
+
+Isso permite que a aplicação seja instalada em dispositivos compatíveis e utilizada de forma semelhante a um aplicativo tradicional.
+
+O projeto inclui:
+
+- 📲 Manifesto PWA
+- 🐷 Ícones personalizados do Porquin
+- 🖼️ Ícones 192×192 e 512×512
+- 🎭 Ícone maskable
+- 🍎 Apple Touch Icon
+- 🌐 Favicon
+- ⚡ Service Worker
+- 📴 Funcionamento offline
+- 📱 Modo `standalone`
+
+---
+
+## 🛠️ Tecnologias
+
+O projeto utiliza:
+
+- ⚛️ React 19
+- 🔷 TypeScript
+- ⚡ Vite 8
+- 🎨 CSS
+- 📱 Progressive Web App (PWA)
+- 💾 LocalStorage
+- ⚙️ Service Worker
+- 🚀 GitHub Actions
+- 🌐 GitHub Pages
+
+A aplicação é totalmente **client-side** e não depende de backend para armazenar os dados financeiros.
+
+---
+
+## 📋 Pré-requisitos
+
+Antes de executar o projeto, tenha instalado:
 
 - Node.js 22.13 ou superior
 - npm
-- Windows, macOS ou Linux
+- Git
 
-## Instalação
+O projeto pode ser executado em:
+
+- Windows
+- macOS
+- Linux
+
+---
+
+## 🚀 Instalação
+
+Clone o repositório:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd Porquin-Finance
+git clone https://github.com/VitorDutraMelo/porquin-finance.git
+```
+
+Entre na pasta:
+
+```bash
+cd porquin-finance
+```
+
+Instale as dependências:
+
+```bash
 npm install
 ```
 
-## Executando localmente
+---
+
+## 💻 Executando localmente
+
+Inicie o ambiente de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-Abra o endereço exibido no terminal.
+O Vite exibirá no terminal o endereço local da aplicação.
 
-## Scripts
+Normalmente:
+
+```text
+http://localhost:5173/
+```
+
+---
+
+## 📦 Build de produção
+
+Gere o build:
+
+```bash
+npm run build
+```
+
+Os arquivos finais serão gerados em:
+
+```text
+dist/
+```
+
+A estrutura de produção inclui um `index.html` estático, permitindo a publicação da aplicação em serviços de hospedagem estática.
+
+Para visualizar o build localmente:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🧪 Scripts
 
 | Comando | Descrição |
 | --- | --- |
 | `npm run dev` | Inicia o ambiente de desenvolvimento |
-| `npm run build` | Gera e valida o build de produção |
-| `npm run start` | Visualiza localmente a aplicação compilada |
-| `npm run preview` | Alias para visualizar a aplicação compilada |
+| `npm run build` | Gera o build de produção |
+| `npm run preview` | Executa uma prévia do build |
+| `npm run start` | Executa localmente a versão compilada |
 | `npm run lint` | Analisa o código com ESLint |
-| `npm test` | Executa o build e os testes automatizados |
+| `npm test` | Executa os testes automatizados |
 
-## Build de produção
+---
 
-```bash
-npm run build
-```
-
-O resultado é gerado na pasta `dist/`.
-
-Para iniciar a versão compilada:
-
-```bash
-npm run start
-```
-
-## Estrutura principal
+## 📁 Estrutura principal
 
 ```text
-Porquin-Finance/
-├── app/                  # Interface, componentes e estilos principais
-├── public/               # Mascote, ícones, manifesto e Service Worker
+porquin-finance/
+│
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml
+│
+├── public/
 │   ├── icons/
 │   ├── manifest.webmanifest
 │   ├── porquin-official.png
-│   └── service-worker.js
-├── tests/                # Testes automatizados
+│   ├── service-worker.js
+│   └── ...
+│
+├── src/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── globals.css
+│
+├── tests/
+│
+├── index.html
 ├── package.json
 ├── package-lock.json
 ├── tsconfig.json
-└── vite.config.ts
+├── vite.config.ts
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-## Persistência e privacidade
+---
 
-Os dados financeiros são armazenados no `LocalStorage` do navegador. O aplicativo não envia esses dados para um servidor e não depende de login, API ou banco de dados para as funcionalidades financeiras atuais.
+## 💾 Persistência dos dados
 
-Os dados permanecem vinculados ao navegador e ao dispositivo utilizados. Antes de limpar os dados do navegador, trocar de aparelho ou reinstalar o sistema, exporte um backup pela própria aplicação.
+O Porquin Finance utiliza o **LocalStorage** do navegador.
 
-## PWA e instalação
+Isso significa que informações como:
 
-O projeto inclui:
+- movimentações;
+- categorias;
+- metas;
+- cofrinhos;
+- eventos;
+- preferências;
+- nome;
+- tema;
 
-- `manifest.webmanifest`
-- Service Worker e registro em produção
-- Ícones 192×192 e 512×512
-- Ícone maskable
-- Apple Touch Icon
-- Favicon
-- Modo `standalone`
-- Cache para funcionamento offline
+permanecem armazenadas no dispositivo utilizado.
 
-Para que a instalação seja oferecida corretamente, publique a aplicação em HTTPS e preserve os caminhos públicos dos arquivos em `public/`.
+### ⚠️ Importante
 
-## Publicação
+Os dados estão vinculados ao navegador e ao dispositivo.
 
-Gere o build com:
+Antes de:
 
-```bash
+- limpar os dados do navegador;
+- formatar o dispositivo;
+- trocar de computador ou celular;
+- remover dados do site;
+
+é recomendado utilizar a função de **exportação de backup** disponível dentro do próprio Porquin Finance.
+
+---
+
+## 🔐 Privacidade
+
+O Porquin Finance foi desenvolvido seguindo uma abordagem **local-first**.
+
+A aplicação não necessita de:
+
+- ❌ banco de dados externo;
+- ❌ conta de usuário;
+- ❌ login;
+- ❌ servidor para armazenar dados financeiros;
+- ❌ envio das movimentações financeiras para APIs externas.
+
+Os registros financeiros permanecem localmente no navegador utilizado pelo usuário.
+
+---
+
+## 🌐 GitHub Pages
+
+O projeto está preparado para publicação através do **GitHub Pages** utilizando GitHub Actions.
+
+O Vite utiliza:
+
+```ts
+base: "/porquin-finance/"
+```
+
+permitindo que os assets sejam carregados corretamente no endereço do projeto.
+
+O deploy é realizado automaticamente através do workflow:
+
+```text
+.github/workflows/deploy-pages.yml
+```
+
+Após um push para a branch `main`, o GitHub Actions executa o build e publica a pasta:
+
+```text
+dist/
+```
+
+---
+
+## 🔄 Fluxo de deploy
+
+```text
+Push para main
+       ↓
+GitHub Actions
+       ↓
+npm ci
+       ↓
 npm run build
+       ↓
+dist/index.html
+       ↓
+GitHub Pages
+       ↓
+Porquin Finance 🐷
 ```
 
-Depois, publique o projeto em uma plataforma Node.js compatível com Vite/Vinext. O Porquin Finance não utiliza Cloudflare Workers, D1, R2, banco de dados ou backend para armazenar os dados financeiros.
+---
 
-Os comandos `npm install`, `npm run dev`, `npm run build` e `npm run start` são multiplataforma e funcionam diretamente no PowerShell, no Terminal do macOS e em shells Linux.
+## 🧠 Arquitetura
 
-## Licença
+O Porquin Finance utiliza uma arquitetura simples e adequada para uma aplicação financeira local:
 
-Este é um projeto proprietário. Consulte o arquivo [LICENSE](LICENSE) antes de copiar, distribuir, modificar ou utilizar comercialmente o código e os materiais da marca.
+```text
+React
+   ↓
+TypeScript
+   ↓
+Vite
+   ↓
+LocalStorage
+   ↓
+PWA / Service Worker
+   ↓
+GitHub Pages
+```
+
+Não existe backend ou banco de dados necessário para o funcionamento das funcionalidades financeiras atuais.
+
+---
+
+## 🐷 Sobre o Porquin
+
+O Porquin é o mascote oficial do projeto.
+
+Ele representa a proposta principal da aplicação:
+
+> **Organizar o dinheiro de maneira simples, leve e acessível.**
+
+O mascote faz parte da identidade visual do aplicativo, incluindo a experiência PWA e os ícones de instalação.
+
+---
+
+## 📄 Licença
+
+Este é um **projeto proprietário**.
+
+O código-fonte, identidade visual, mascote, elementos gráficos e demais materiais do **Porquin Finance** não podem ser copiados, redistribuídos, modificados ou utilizados comercialmente sem autorização.
+
+Consulte o arquivo:
+
+```text
+LICENSE
+```
+
+para mais informações.
+
+---
+
+<p align="center">
+  🐷 <strong>Porquin Finance</strong><br>
+  Organize. Economize. Realize seus sonhos.
+</p>
